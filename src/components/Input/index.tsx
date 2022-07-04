@@ -14,16 +14,14 @@ const Input: React.FC<InputProps> = ({ id, label, required, ...rest }) => {
   return (
     <Container>
       <InputLabel htmlFor={id}>{label + (required ? ' *' : '')}</InputLabel>
-      <span style={{ width: '100%' }}>
-        <InputField
-          id={id}
-          required={required}
-          onBlur={() => setFocused(true)}
-          onChange={() => setFocused(true)}
-          {...rest}
-        />
-        <ErrorLabel>{focused ? label + ' is Invalid' : ''}</ErrorLabel>
-      </span>
+      <InputField
+        id={id}
+        required={required}
+        onBlur={() => setFocused(true)}
+        onChange={() => setFocused(true)}
+        {...rest}
+      />
+      <ErrorLabel>{focused ? label + ' is Invalid' : ''}</ErrorLabel>
     </Container>
   );
 };

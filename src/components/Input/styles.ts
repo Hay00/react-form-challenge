@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* width: 100%; */
-  /* max-width: 520px; */
-  /* min-width: 165px; */
-  flex-grow: 1;
-  float: left;
-  margin-right: 20px;
   margin-bottom: 30px;
 `;
 

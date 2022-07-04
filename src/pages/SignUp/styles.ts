@@ -5,8 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
-  @media (max-width: 678px) {
-    width: 100%;
+
+  @media (max-width: 768px) {
     border-radius: 0px;
     margin: 0px;
   }
@@ -16,7 +16,6 @@ export const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* padding: 10px 15px; */
   margin: 0px;
 `;
 
@@ -26,17 +25,32 @@ export const Title = styled.h1`
   font-weight: 600;
   font-size: 36px;
   line-height: 24px;
+  text-align: center;
+  margin: 15px 0px 30px;
+`;
+
+export const InputGroup = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 interface InputContainerProps {
-  marginRight?: string;
+  size?: 'large';
 }
 
 export const InputContainer = styled.div<InputContainerProps>`
-  display: flex;
-  flex-wrap: wrap;
-  // Margin if passed in props
-  margin-right: ${(props) => props.marginRight || '0px'};
+  @media (min-width: 768px) {
+    width: ${(props) => (props.size === 'large' ? '330px' : 'auto')};
+    margin-right: ${(props) => (props.size === 'large' ? '22px' : '0px')};
+  }
+
+  @media (max-width: 678px) {
+    width: 100%;
+    border-radius: 0px;
+    margin: 0px;
+  }
 `;
 
 export const SubmitContainer = styled.div`

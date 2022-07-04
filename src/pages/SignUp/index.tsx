@@ -7,6 +7,7 @@ import {
   Container,
   Form,
   InputContainer,
+  InputGroup,
   SubmitContainer,
   Title,
 } from './styles';
@@ -43,7 +44,7 @@ export function SignUp() {
   return (
     <Container>
       <Card>
-        <img src="./public/sign-up.svg" />
+        <img src="./public/sign-up.svg" style={{ margin: '0px auto' }} />
         <Title>Intern Sign Up</Title>
         <Form onSubmit={handleSubmit}>
           <Input
@@ -55,8 +56,8 @@ export function SignUp() {
             placeholder="Name"
             pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,}$"
           />
-          <div style={{ display: 'flex' }}>
-            <InputContainer marginRight='22px'>
+          <InputGroup>
+            <InputContainer size="large">
               <Input
                 required
                 id="email"
@@ -101,7 +102,7 @@ export function SignUp() {
                 onChange={handleFormValues}
               />
             </InputContainer>
-          </div>
+          </InputGroup>
           <SubmitContainer>
             <CheckBox checked={formValues.terms} onChange={handleTerms}>
               I accept the therms and privacy
