@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 38px;
 `;
 
 export const InputLabel = styled.label`
   display: block;
   color: #aaa;
-  margin-bottom: 5px;
   font-size: 14px;
 `;
 
 // Invisible label until input has error
 export const ErrorLabel = styled.span`
+  position: absolute;
   font-family: 'Nunito';
   font-style: normal;
   font-size: 14px;

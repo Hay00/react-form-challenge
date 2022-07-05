@@ -8,7 +8,12 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   required?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ id, label, required, ...rest }) => {
+const Input: React.FC<InputProps> = ({
+  id,
+  label,
+  required = false,
+  ...rest
+}) => {
   const [focused, setFocused] = React.useState(false);
 
   return (
@@ -18,7 +23,6 @@ const Input: React.FC<InputProps> = ({ id, label, required, ...rest }) => {
         id={id}
         required={required}
         onBlur={() => setFocused(true)}
-        onChange={() => setFocused(true)}
         {...rest}
       />
       <ErrorLabel>{focused ? label + ' is Invalid' : ''}</ErrorLabel>

@@ -4,14 +4,10 @@ import { ButtonText, StyledButton } from './styles';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: string;
-  size?: 'small' | 'default' | 'large';
+  size?: 'md' | 'lg';
 }
 
-const Button: React.FC<ButtonProps> = ({
-  size = 'default',
-  children,
-  ...rest
-}) => {
+const Button: React.FC<ButtonProps> = ({ size = 'md', children, ...rest }) => {
   return (
     <StyledButton size={size} {...rest}>
       <ButtonText size={size}>{children}</ButtonText>

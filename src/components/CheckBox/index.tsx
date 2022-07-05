@@ -7,25 +7,29 @@ import {
   Label,
 } from './styles';
 
-interface CheckBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  checked?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+interface CheckBoxProps {
+  checked: boolean;
+  required?: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  props?: any[];
+  children?: React.ReactNode;
 }
 
 const CheckBox = ({
   checked,
+  required = false,
   onChange,
   children,
   ...rest
-}: {
-  checked: boolean;
-  onChange: (event: any) => void;
-  props?: any[];
-  children?: React.ReactNode;
-}) => {
+}: CheckBoxProps) => {
   return (
     <Container>
-      <HiddenCheckbox checked={checked} onChange={onChange} {...rest} />
+      <HiddenCheckbox
+        required={required}
+        checked={checked}
+        onChange={onChange}
+        {...rest}
+      />
       <StyledCheckbox checked={checked}>
         <Icon viewBox="0 0 24 24">
           <polyline points="20 6 9 17 4 12" />

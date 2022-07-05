@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 import CheckBox from '../../components/CheckBox';
 import Input from '../../components/Input';
+import { ErrorLabel, InputLabel } from '../../components/Input/styles';
 import {
   Container,
+  DateInput,
   Form,
   InputContainer,
   InputGroup,
@@ -13,13 +16,15 @@ import {
 } from './styles';
 
 export function SignUp() {
+  const navigate = useNavigate();
+
   // Form for sign up user
   const [formValues, setFormValues] = React.useState({
     name: '',
     email: '',
     password: '',
     phone: '',
-    birthDate: '',
+    birthDate: new Date(),
     terms: false,
   });
 
@@ -35,10 +40,9 @@ export function SignUp() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // Check form validity
-    console.log(event.currentTarget.checkValidity());
-    const formData = new FormData(event.target as HTMLFormElement);
-    console.log(formData);
+    localStorage.setItem('@user', JSON.stringify(formValues));
+    console.log(formValues);
+    navigate('/success');
   }
 
   return (
@@ -55,6 +59,8 @@ export function SignUp() {
             label="Full Name"
             placeholder="Name"
             pattern="^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,}$"
+            value={formValues.name}
+            onChange={handleFormValues}
           />
           <InputGroup>
             <InputContainer size="large">
@@ -92,19 +98,28 @@ export function SignUp() {
                 value={formValues.phone}
                 onChange={handleFormValues}
               />
-              <Input
-                required
-                id="birthDate"
-                name="birthDate"
-                type="date"
-                label="Birth Date"
-                value={formValues.birthDate}
-                onChange={handleFormValues}
-              />
+              <div style={{ marginBottom: '30px' }}>
+                <InputLabel>Birthday *</InputLabel>
+                <DateInput
+                  required
+                  placeholderText="01/01/2000"
+                  dateFormat="dd/MM/yyyy"
+                  minDate={new Date('1900/1/1')}
+                  selected={formValues.birthDate}
+                  onChange={(e: Date) =>
+                    setFormValues({ ...formValues, birthDate: e })
+                  }
+                />
+                <ErrorLabel>Invalid Date</ErrorLabel>
+              </div>
             </InputContainer>
           </InputGroup>
           <SubmitContainer>
-            <CheckBox checked={formValues.terms} onChange={handleTerms}>
+            <CheckBox
+              required
+              checked={formValues.terms}
+              onChange={handleTerms}
+            >
               I accept the therms and privacy
             </CheckBox>
             <Button type="submit">Register</Button>
