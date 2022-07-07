@@ -11,7 +11,10 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     width: 100vw;
+    height: 100%;
+    min-height: 100%;
     margin: 0px;
+    padding: 20px;
     border-radius: 0px;
   }
 `;

@@ -28,6 +28,8 @@ export const InputField = styled.input`
   padding: 8px;
   border: 2px solid #aaa;
   border-radius: 4px;
+  font-family: 'Nunito';
+  font-style: normal;
 
   &:focus {
     outline: none;

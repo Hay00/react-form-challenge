@@ -7,7 +7,6 @@ export const Container = styled.div`
   margin-top: 50px;
 
   @media (max-width: 768px) {
-    border-radius: 0px;
     margin: 0px;
   }
 `;
@@ -28,8 +27,11 @@ export const Title = styled.h1`
 
 export const ButtonContainer = styled.div`
   display: flex;
+  justify-content: center;
 
   @media (min-width: 768px) {
-    flex-direction: column;
+    & > button {
+      width: 270px;
+    }
   }
 `;

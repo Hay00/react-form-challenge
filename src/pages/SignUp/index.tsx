@@ -9,10 +9,11 @@ import {
   Container,
   DateInput,
   Form,
-  InputContainer,
+  FirstInputContainer,
   InputGroup,
   SubmitContainer,
   Title,
+  SecondInputContainer,
 } from './styles';
 
 export function SignUp() {
@@ -63,7 +64,7 @@ export function SignUp() {
             onChange={handleFormValues}
           />
           <InputGroup>
-            <InputContainer size="large">
+            <FirstInputContainer>
               <Input
                 required
                 id="email"
@@ -86,8 +87,8 @@ export function SignUp() {
                 value={formValues.password}
                 onChange={handleFormValues}
               />
-            </InputContainer>
-            <InputContainer>
+            </FirstInputContainer>
+            <SecondInputContainer>
               <Input
                 id="phone"
                 name="phone"
@@ -112,7 +113,7 @@ export function SignUp() {
                 />
                 <ErrorLabel>Invalid Date</ErrorLabel>
               </div>
-            </InputContainer>
+            </SecondInputContainer>
           </InputGroup>
           <SubmitContainer>
             <CheckBox

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Input from '../../components/Input';
 
 export const Container = styled.div`
   display: flex;
@@ -38,20 +39,26 @@ export const InputGroup = styled.div`
   }
 `;
 
-interface InputContainerProps {
-  size?: 'large';
-}
-
-export const InputContainer = styled.div<InputContainerProps>`
+export const FirstInputContainer = styled.div`
   @media (min-width: 768px) {
-    width: ${(props) => (props.size === 'large' ? '330px' : 'auto')};
-    margin-right: ${(props) => (props.size === 'large' ? '22px' : '0px')};
+    width: 330px;
+    margin-right: 22px;
   }
 
   @media (max-width: 678px) {
     width: 100%;
     border-radius: 0px;
     margin: 0px;
+  }
+`;
+
+export const SecondInputContainer = styled.div`
+  @media (max-width: 768px) and (min-width: 410px) {
+    display: flex;
+    justify-content: space-between;
+    & > div {
+      width: 48%;
+    }
   }
 `;
 
