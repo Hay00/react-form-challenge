@@ -1,7 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  background-color: #fff;
+export interface CardProps {
+  /**
+   * Content of the card
+   */
+  children: React.ReactNode;
+
+  /**
+   * Background color of the card
+   */
+  color?: string;
+}
+
+export const StyledCard = styled.div<CardProps>`
+  background-color: ${({ color }) => (color ? color : '#fff')};
   border-radius: 20px;
   padding: 50px;
   margin: 20px;

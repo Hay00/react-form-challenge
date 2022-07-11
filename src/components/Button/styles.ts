@@ -1,43 +1,48 @@
-import styled, { css } from 'styled-components';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 
-interface Props {
+interface ButtonProps {
   color?: string;
-  size?: 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 // Size styles for buttons
 const sizes = {
-  base: {
-    lg: css`
-      padding: 16px;
-      @media (min-width: 768px) {
-        padding: 79.5px 39.5px;
-      }
-    `,
-    md: css`
-      padding: 12px;
-    `,
-  },
-  text: {
-    lg: css`
-      font-size: 36px;
-    `,
-    md: css`
-      font-size: 16px;
-    `,
-  },
+  lg: css`
+    padding: 16px;
+    @media (min-width: 768px) {
+      padding: 79.5px 39.5px;
+    }
+  `,
+  md: css`
+    padding: 12px;
+  `,
+  sm: css`
+    padding: 8px;
+  `,
 };
 
-export const StyledButton = styled.button<Props>`
+const fonts = {
+  lg: css`
+    font-size: 36px;
+  `,
+  md: css`
+    font-size: 16px;
+  `,
+  sm: css`
+    font-size: 12px;
+  `,
+};
+
+export const StyledButton = styled.button<ButtonProps>`
   border: none;
   border-radius: 10px;
   margin: 5px;
   transition: 0.2s all;
 
   // Button sizes
-  ${(props) => sizes.base[props.size || 'md']}
+  ${({ size }) => sizes[size || 'md']}
 
-  background-color: ${(props) => (props.color ? props.color : '#0dbdbd')};
+  background-color: ${({ color }) => (color ? color : '#0dbdbd')};
 
   @media (max-width: 768px) {
     width: 100%;
@@ -51,11 +56,11 @@ export const StyledButton = styled.button<Props>`
   }
 `;
 
-export const ButtonText = styled.span<Props>`
+export const ButtonText = styled.span<ButtonProps>`
   color: #fff;
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
 
   // Font sizes
-  ${(props) => sizes.text[props.size || 'md']}
+  ${({ size }) => fonts[size || 'md']}
 `;

@@ -1,13 +1,9 @@
 import React from 'react';
-import { Container } from './styles';
+import { CardProps, StyledCard } from './styles';
 
-// Interface
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  children: React.ReactNode;
-}
-
-const Card: React.FC<Props> = ({ children }) => {
-  return <Container>{children}</Container>;
+/**
+ * UI Card component for displaying content.
+ */
+export const Card = ({ children, color = '#fff' }: CardProps) => {
+  return <StyledCard color={color}>{children}</StyledCard>;
 };
-
-export default Card;

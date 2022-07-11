@@ -2,13 +2,31 @@ import React from 'react';
 import { Container, ErrorLabel, InputField, InputLabel } from './styles';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * Input id
+   */
   id: string;
+
+  /**
+   * Input name
+   */
   name: string;
+
+  /**
+   * Input label
+   */
   label: string;
+
+  /**
+   * Is the input required?
+   */
   required?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({
+/**
+ * UI Input component for interaction.
+ */
+export const Input: React.FC<InputProps> = ({
   id,
   label,
   required = false,
@@ -29,5 +47,3 @@ const Input: React.FC<InputProps> = ({
     </Container>
   );
 };
-
-export default Input;

@@ -8,14 +8,33 @@ import {
 } from './styles';
 
 interface CheckBoxProps {
+  /**
+   * Is the checkbox checked?
+   */
   checked: boolean;
+
+  /**
+   * Make the checkbox required
+   */
   required?: boolean;
+
+  /**
+   * On change handler
+   */
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+  /**
+   * Any other props to pass to the checkbox
+   */
   props?: any[];
+
+  /**
+   * Label for the checkbox
+   */
   children?: React.ReactNode;
 }
 
-const CheckBox = ({
+export const CheckBox = ({
   checked,
   required = false,
   onChange,
@@ -39,5 +58,3 @@ const CheckBox = ({
     </Container>
   );
 };
-
-export default CheckBox;

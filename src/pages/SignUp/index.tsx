@@ -1,19 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../../components/Button';
-import Card from '../../components/Card';
-import CheckBox from '../../components/CheckBox';
-import Input from '../../components/Input';
+import { Button, Card, CheckBox, Input } from '../../components/';
 import { ErrorLabel, InputLabel } from '../../components/Input/styles';
 import {
   Container,
-  DateInput,
-  Form,
-  FirstInputContainer,
-  InputGroup,
-  SubmitContainer,
-  Title,
-  SecondInputContainer,
+  DateInput, FirstInputContainer, Form, InputGroup, SecondInputContainer, SubmitContainer,
+  Title
 } from './styles';
 
 export function SignUp() {
