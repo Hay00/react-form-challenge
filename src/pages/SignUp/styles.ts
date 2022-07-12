@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Input from '../../components/Input';
 
 export const Container = styled.div`
   display: flex;

@@ -18,7 +18,7 @@ export const ErrorLabel = styled.span`
   font-size: 14px;
   margin-top: 8px;
   color: #ff4b4b;
-  display: none;
+  display: block;
 `;
 
 export const InputField = styled.input`
@@ -35,10 +35,5 @@ export const InputField = styled.input`
     outline: none;
     border-color: #0dbdbd;
     transition: 200ms ease-in-out;
-  }
-
-  // Show error label if input is invalid
-  &:invalid + ${ErrorLabel} {
-    display: block;
   }
 `;

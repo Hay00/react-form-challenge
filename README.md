@@ -19,3 +19,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Runs app components documentation.\
 Open [http://localhost:6006/](http://localhost:6006/) to view it in your browser.
+
+
+### `npr run test`
+
+Runs all unit tests.

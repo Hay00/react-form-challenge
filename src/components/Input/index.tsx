@@ -32,7 +32,15 @@ export const Input: React.FC<InputProps> = ({
   required = false,
   ...rest
 }) => {
-  const [focused, setFocused] = React.useState(false);
+  const [error, setError] = React.useState(false);
+
+  function validateInput() {
+    const { value, pattern } = rest;
+    if (pattern) {
+      const regex = new RegExp(pattern);
+      setError(!regex.test(value as string));
+    }
+  }
 
   return (
     <Container>
@@ -40,10 +48,10 @@ export const Input: React.FC<InputProps> = ({
       <InputField
         id={id}
         required={required}
-        onBlur={() => setFocused(true)}
+        onBlur={validateInput}
         {...rest}
       />
-      <ErrorLabel>{focused ? label + ' is Invalid' : ''}</ErrorLabel>
+      {error && <ErrorLabel>{label} is Invalid</ErrorLabel>}
     </Container>
   );
 };

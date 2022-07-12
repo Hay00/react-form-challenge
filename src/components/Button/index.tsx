@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ButtonText, StyledButton } from './styles';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Content of the button
    */
